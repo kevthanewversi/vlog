@@ -1,5 +1,5 @@
-%p#notice= notice
-
+%p
+  =image_tag @movie.image.url(:medium) 
 %p
   %b Title:
   = @movie.title
@@ -12,6 +12,7 @@
 %p
   %b Description:
   = @movie.description
+
 
 = link_to 'Edit', edit_movie_path(@movie)
 \|

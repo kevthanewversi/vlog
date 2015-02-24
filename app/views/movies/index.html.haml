@@ -7,13 +7,14 @@
       %th Length
       %th Star
       %th Description
-      %th
+      %th 
       %th
       %th
       
   %tbody
     - @movies.each do |movie|
       %tr
+        %td= image_tag movie.image.url(:medium)
         %td= movie.title
         %td= movie.length
         %td= movie.star
