@@ -3,8 +3,10 @@
 		%p 
 			%h2 Your favorite movies reviewed
 	=link_to "Sign Up to Write Review", new_user_registration_path,class: 'btn btn-primary btn-lg'
-.row
-	- @movies.each do |movie|
-		.col-sm-6.col-md-3
-		.thumbnail
-			= link_to(image_tag(movie.image.url(:medium)), movie_path(movie), class: 'image',title: movie.title) 	 	 	
+
+- @movies.in_groups_of(5).each do |movies|
+	.row
+		- (movies - [nil]).each do |movie|
+			.col-md-3
+				.thumbnail
+					= link_to(image_tag(movie.image.url(:medium)), movie_path(movie), class: 'image',title: movie.title) 	 	 	

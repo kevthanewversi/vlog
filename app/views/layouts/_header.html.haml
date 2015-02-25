@@ -1,11 +1,11 @@
 #bs-example-navbar-collapse-1.collapse.navbar-collapse
-  %ul 
-  - if user_signed_in?
-    %li
-      = link_to "New Movie", new_movie_path
-    %li
-      = link_to "Account",edit_user_registration_path
-    %form.navbar-form.navbar-right{:role => "search"}
-      .form-group
-        %input.form-control{:placeholder => "Search", :type => "text"}
-      %button.btn.btn-default{:type => "submit"} Submit
+ %ul 
+ - if user_signed_in?
+  %li
+  = link_to "New Movie", new_movie_path
+  %li
+  = link_to "Account",edit_user_registration_path
+  %form.navbar-form.navbar-right{:role => "search"}
+   .form-group
+    %input.form-control{:placeholder => "Search", :type => "text"}
+     %button.btn.btn-default{:type => "submit"} Submit
