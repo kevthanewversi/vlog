@@ -1,28 +1,10 @@
-%h1 Listing movies
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Length
-      %th Star
-      %th Description
-      %th 
-      %th
-      %th
-      
-  %tbody
-    - @movies.each do |movie|
-      %tr
-        %td= image_tag movie.image.url(:medium)
-        %td= movie.title
-        %td= movie.length
-        %td= movie.star
-        %td= movie.description
-        %td= link_to 'Show', movie
-        %td= link_to 'Edit', edit_movie_path(movie)
-        %td= link_to 'Destroy', movie, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Movie', new_movie_path
+-if !user_signed_in?
+	.jumbotran
+		%p 
+			%h2 Your favorite movies reviewed
+	=link_to "Sign Up to Write Review", new_user_registration_path,class: 'btn btn-primary btn-lg'
+.row
+	- @movies.each do |movie|
+		.col-sm-6.col-md-3
+		.thumbnail
+			= link_to(image_tag(movie.image.url(:medium)), movie_path(movie), class: 'image',title: movie.title) 	 	 	

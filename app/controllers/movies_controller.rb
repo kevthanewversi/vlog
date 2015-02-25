@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/new
   def new
-    @movie = current_user.movies.build
+    @movie = current_user.movies.build #devise to build a movie from current user
   end
 
   # GET /movies/1/edit
@@ -70,6 +70,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :length, :star, :description,:image)
+      params.require(:movie).permit(:title, :length, :star, :description, :rating, :image)
     end
 end
