@@ -1,33 +1,38 @@
-.panel.panel-default
-	.panel-body
-		.row
-			.col-md-4 
-				%p 
-				= image_tag @movie.image.url(:medium) 
-.table-responsive
-	%table
-		%tr
-			%td
-				%b Title: 
-				= @movie.title
-		%tr
-			%td
-				%b Length: 
-				= @movie.length
-		%tr
-			%td
-				%b Star: 
-				= @movie.star
-		%tr
-			%td
-				%b Description: 
-				= @movie.description
-		%tr
-			%td
-				%b Rating: 
-				= @movie.rating
+.row
+	.col-md-1
+	.col-md-10
+		.panel.panel-default
+			.panel-body
+				.row
+					.col-md-4 
+						%p 
+						= image_tag @movie.image.url(:medium) 
+				.table-responsive
+					%table
+						%tr
+							%td
+								%b Title: 
+								= @movie.title
+						%tr
+							%td
+								%b Length: 
+								= @movie.length
+						%tr
+							%td
+								%b Star: 
+								= @movie.star
+						%tr
+							%td
+								%b Description: 
+								= @movie.description
+						%tr
+							%td
+								%b Rating: 
+								= @movie.rating
 
 
-= link_to 'Edit', edit_movie_path(@movie)
-|
-= link_to 'Back', movies_path
+				= link_to 'Edit', edit_movie_path(@movie)
+				|
+				= link_to 'Back', movies_path
+
+	.col-md-1
