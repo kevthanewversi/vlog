@@ -6,6 +6,9 @@
 %p
   %b Comment:
   = @review.comment
+%p
+  %b User:
+  = @review.user.email
 
 = link_to 'Edit', edit_review_path(@review)
 \|

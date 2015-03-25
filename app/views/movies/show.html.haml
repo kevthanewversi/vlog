@@ -29,7 +29,9 @@
 							%td
 								%b Rating: 
 								= @movie.rating
+ 
 
+                =link_to 'New Review', new_review_path(@movie)
 
 				= link_to 'Edit', edit_movie_path(@movie)
 				|
