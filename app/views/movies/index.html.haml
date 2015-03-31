@@ -1,16 +1,20 @@
 .row
- .col-md-1
- .col-md-10
-  -if !user_signed_in?
-   .jumbotran
-    %p 
-     %h2 Your favorite movies reviewed
-   =link_to "Sign Up to Write Review", new_user_registration_path,class: 'btn btn-primary btn-lg'
+	.col-md-1
+	.col-md-10
+		-if !user_signed_in?
+			.jumbotron
+				%p 
+					%h2 Your favorite movies reviewed
+				= link_to "Sign Up to Write Review", new_user_registration_path,class: 'btn btn-primary btn-lg'
 
-  - @movies.in_groups_of(5).each do |movies|
-   .row
-    - (movies - [nil]).each do |movie|
-     .col-md-3
-      .thumbnail
-       = link_to(image_tag(movie.image.url(:medium)), movie_path(movie), class: 'image',title: movie.title) 
- .col-md-1     
+		- if @movies.empty?
+			%p
+				= "#{params[:search]} was not found!" 
+		- else
+			- @movies.in_groups_of(5).each do |movies|
+				.row
+					- (movies - [nil]).each do |movie|
+						.col-md-3
+							.thumbnail
+								= link_to(image_tag(movie.image.url(:medium)), movie_path(movie), class: 'image',title: movie.title)
+	.col-md-1     

@@ -8,7 +8,7 @@
      = link_to "New Movie", new_movie_path
      %li
      = link_to "Account",edit_user_registration_path
-     %form.navbar-form.navbar-right{:role => "search"}
+     %form.navbar-form.navbar-right{:role => "search", :action => "#{movies_path}", :method => "get"}
       .form-group
-       %input.form-control{:placeholder => "Search", :type => "text"}
-        %button.btn.btn-default{:type => "submit"} Submit
+       %input.form-control{ :name => "search", :placeholder => "Search", :type => "text"}
+        / %button.btn.btn-default{:type => "submit"} Submit
