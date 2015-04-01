@@ -1,14 +1,37 @@
-%nav.navbar.navbar-default{:role => "navigation"}
- .container
-  .navbar-header
-   #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    %ul 
-    - if user_signed_in?
-     %li
-     = link_to "New Movie", new_movie_path
-     %li
-     = link_to "Account",edit_user_registration_path
-     %form.navbar-form.navbar-right{:role => "search", :action => "#{movies_path}", :method => "get"}
-      .form-group
-       %input.form-control{ :name => "search", :placeholder => "Search", :type => "text"}
-        / %button.btn.btn-default{:type => "submit"} Submit
+%nav.navbar.navbar-inverse
+	.container-fluid
+		/ Brand and toggle get grouped for better mobile display
+		.navbar-header
+			%button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+				%span.sr-only Toggle navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			%a.navbar-brand{:href => "#{movies_path}"} Movie Reviews
+		/ Collect the nav links, forms, and other content for toggling
+		#bs-example-navbar-collapse-1.collapse.navbar-collapse
+			%ul.nav.navbar-nav
+				- if user_signed_in?
+					%li 
+						= link_to "New Movie", new_movie_path
+					%li
+						= link_to "Account",edit_user_registration_path
+			%form.navbar-form.navbar-left{:role => "search", :action => "#{movies_path}", :method => "get"}
+				.form-group
+					%input.form-control{ :name => "search", :placeholder => "Search Movies", :type => "text"}
+
+
+			%ul.nav.navbar-nav.pull-right
+				- if !user_signed_in?
+					%li 
+						= link_to "Sign in", new_user_session_path
+					%li 
+						= link_to "Sign Up", new_user_registration_path
+				- else
+					%li 
+						= link_to "Sign out", destroy_user_session_path, method: "delete"
+
+
+
+
+	
