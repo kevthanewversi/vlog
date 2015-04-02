@@ -1,13 +1,17 @@
 !!!
 %html
-  %head
-    %title Vlog
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-  %body
-    =render 'layouts/header'
-    .container
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+	%head
+		%title Vlog
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+	%body
+		=render 'layouts/header'
+		.container
+			- if !alert.nil?
+				.alert.alert-danger{role: "alert"} 
+					= alert
+			- if !notice.nil?
+				.alert.alert-success{role: "alert"} 
+					= notice
+			= yield

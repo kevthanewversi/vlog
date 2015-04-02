@@ -1,12 +1,23 @@
-<div class = "navbar-form">	
-	<h2>Sign up</h2>
+<div class = "row">
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+<section class = "panel panel-default" >	
 
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-		<%= devise_error_messages! %>
+	<header class = "panel-heading" > <h4> Sign up </h4> </header>
+
+	<div class ="panel-body"> <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
 		<div class="field">
 			<%= f.label :email %><br />
 			<%= f.email_field :email, autofocus: true, class: "form-control" %>
+			<ul>
+			<% if !resource.errors[:email].empty? %>
+				<% resource.errors[:email].each do |error| %>
+					<li style="color: red;">Email <%= error %> </li> 
+				<% end %>	
+			<% end %>
+			</ul>
 		</div>
 
 		<div class="field">
@@ -15,11 +26,17 @@
 			<em>(<%= @minimum_password_length %> characters minimum)</em>
 			<% end %><br />
 			<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+			<% if !resource.errors[:password].empty? %>
+				<p style="color: red;">password <%= resource.errors[:password][0] %></p>
+			<% end %>
 		</div>
 
 		<div class="field">
 			<%= f.label :password_confirmation %><br />
 			<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+			<% if !resource.errors[:password_confirmation].empty? %>
+				<p style="color: red;">Confirmation password <%= resource.errors[:password_confirmation][0] %></p>
+			<% end %>
 		</div>
 
 		<div class="actions">
@@ -28,4 +45,8 @@
 	<% end %>
 
 	<%= render "devise/shared/links" %>
+	</div>
+</section>
+</div>
+<div class="col-md-4">
 </div>

@@ -1,7 +1,12 @@
-<div class = "navbar-form">		
-	<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class = "row">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
+<section class = "panel panel-default" >	
 
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+	<header class = "panel-heading" > <h4>Edit <%= resource_name.to_s.humanize %></h4> </header>
+
+	<div class ="panel-body"> <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 		<%= devise_error_messages! %>
 
 		<div class="field">
@@ -15,21 +20,21 @@
 
 		<div class="field">
 			<%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-			<%= f.password_field :password, autocomplete: "off" %>
+			<%= f.password_field :password, autocomplete: "off",class: "form-control" %>
 		</div>
 
 		<div class="field">
 			<%= f.label :password_confirmation %><br />
-			<%= f.password_field :password_confirmation, autocomplete: "off" %>
+			<%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
 		</div>
 
 		<div class="field">
 			<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-			<%= f.password_field :current_password, autocomplete: "off" %>
+			<%= f.password_field :current_password, autocomplete: "off",class: "form-control" %>
 		</div>
 
 		<div class="actions">
-			<%= f.submit "Update" %>
+			<%= f.submit "Update", class: "btn btn-sm btn-primary"%>
 		</div>
 	<% end %>
 
@@ -38,4 +43,8 @@
 	<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 	<%= link_to "Back", :back %>
+	</div>
+</section>
+</div>
+<div class="col-md-3">
 </div>
