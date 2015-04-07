@@ -9,21 +9,21 @@
 
 		.field
 			= f.label :title
-			= f.text_field :title
+			= f.text_field :title, class: "form-control"
 		.field
 			= f.label :length
-			= f.time_select :length
+			= f.time_select :length, class: "form-control"
 		.field
 			= f.label :star
-			= f.text_field :star
+			= f.text_field :star, class: "form-control"
 		.field
 			= f.label :description
-			= f.text_area :description
+			= f.text_area :description, class: "form-control"
 		.field
 			= f.label :rating
-			= f.text_field :rating
+			= f.text_field :rating, class: "form-control"
 		.field
 			=f.label :image
-			=f.file_field :image
+			=f.file_field :image, class: "form-control"
 		.actions
-			= f.submit 'Save Movie'
+			= f.submit 'Save Movie', class: "btn btn-sm btn-info"

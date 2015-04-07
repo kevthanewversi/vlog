@@ -1,5 +1,13 @@
-%h1 New movie
+.row
+  .col-md-3
+  .col-md-6
+    %section.panel.panel-default
+      %header.panel-heading
+        %h4
+          New movie 
+      .panel-body
+        = render 'form'
 
-= render 'form'
+        = link_to 'Back', movies_path
+  .col-md-3
 
-= link_to 'Back', movies_path

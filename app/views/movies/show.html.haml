@@ -7,6 +7,8 @@
 					.col-md-4 
 						%p 
 							= image_tag @movie.image.url(:medium) 
+
+					.col-md-7.col-md_offset-1
 						.table-responsive
 							%table
 								%tr
@@ -29,24 +31,37 @@
 									%td
 										%b Rating: 
 										= @movie.rating
-					.col-md-7.col-md_offset-1
-						- if @reviews.blank?
-							%h3 No reviews just yet. would you like to add some?
-							= link_to "Write review", new_movie_review_path(@movie), class: "btn btn-danger"
 
-						- else 
-							= @reviews.each do |review|
-								%h5 
-									= review.rating 
-								%h5 
-									= review.comment
-								 
+						= link_to 'Edit', edit_movie_path(@movie)
+						|
+						= link_to 'Back', movies_path
 
- 
+.row
+	.col-md-2
+	.col-md-8		
+		%section.panel.panel-default
+			%header.panel-heading
+				%h4
+					New review 
+				.panel-body
+					= render '/reviews/form'
 
-				= link_to 'New Review', new_movie_review_path(@movie)
 
-				= link_to 'Edit', edit_movie_path(@movie)
-				|
-				= link_to 'Back', movies_path
-					
+				- if @reviews.blank?
+					%h3 No reviews just yet.
+					= link_to "Write review", new_movie_review_path(@movie), class: "btn btn-danger"
+
+				- else 
+					= @reviews.each do |review|
+						%h5 
+							= 	current_user.email
+						%h5 
+							= review.rating 
+						%h5 
+							= review.comment
+	.col-md-2
+						 
+
+
+
+	
