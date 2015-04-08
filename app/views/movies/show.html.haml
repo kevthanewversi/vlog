@@ -55,13 +55,22 @@
 					= @reviews.each do |review|
 						%h5 
 							= 	current_user.email
-						%h5 
-							= review.rating 
+						
+						.star-rating{ "data-score" => review.rating }
+						
 						%h5 
 							= review.comment
 	.col-md-2
 						 
+:javascript
+	$('.star-rating').raty({
+		path: '/assets/',
+		readOnly: true,
+		score: function (){
+			return $(this).attr('data-score');
+		}
+	});
 
 
 
-	
+		
