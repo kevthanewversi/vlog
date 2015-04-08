@@ -29,8 +29,7 @@
 										= @movie.description
 								%tr
 									%td
-										%b Rating: 
-										= @movie.rating
+										.star-rating{ "data-score" => @avg_review }
 
 						= link_to 'Edit', edit_movie_path(@movie)
 						|
