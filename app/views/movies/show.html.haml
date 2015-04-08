@@ -36,8 +36,8 @@
 						= link_to 'Back', movies_path
 
 .row
-	.col-md-2
-	.col-md-8		
+	.col-md-1
+	.col-md-10	
 		%section.panel.panel-default
 			%header.panel-heading
 				%h4
@@ -48,7 +48,7 @@
 
 				- if @reviews.blank?
 					%h3 No reviews just yet.
-					= link_to "Write review", new_movie_review_path(@movie), class: "btn btn-danger"
+					
 
 				- else 
 					= @reviews.each do |review|
@@ -59,7 +59,7 @@
 						
 						%h5 
 							= review.comment
-	.col-md-2
+	.col-md-1
 						 
 :javascript
 	$('.star-rating').raty({

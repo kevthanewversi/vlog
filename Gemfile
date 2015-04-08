@@ -31,8 +31,6 @@ gem 'paperclip', '~> 4.2.1'
 
 gem 'bootstrap-sass', '~> 3.3.3'
 
-gem 'searchkick', '~> 0.8.7'
-
 gem 'annotate'
 
 group :development, :test do
