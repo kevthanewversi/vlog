@@ -32,6 +32,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
+    @review = Review.new
   end
 
   # POST /movies

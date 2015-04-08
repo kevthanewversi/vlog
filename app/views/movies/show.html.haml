@@ -18,7 +18,7 @@
 								%tr
 									%td
 										%b Length: 
-										= @movie.length
+										= Time.at(@movie.length).utc.strftime("%H:%M:%S")
 								%tr
 									%td
 										%b Star: 
