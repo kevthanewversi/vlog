@@ -24,13 +24,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+#user accounts gem
 gem 'devise', '~> 3.4.1'
-
+#uploading images gem
 gem 'paperclip', '~> 4.2.1'
-
+#styling gem
 gem 'bootstrap-sass', '~> 3.3.3'
-
+#annotation of the models and views gem
 gem 'annotate'
 
 group :development, :test do
